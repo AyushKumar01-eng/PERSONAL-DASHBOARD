@@ -21,3 +21,24 @@
     --bg-g1:#f7c784;
     --bg-g3:rgba(7, 182, 7, 0.747);
 }
+
+header {
+    background-color: var(--bg-main);
+    color: var(--bg-prime);
+    height: 10vh;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px;
+    font-size: 25px;
+    margin: 0px 17px;
+}
+
+.logo {
+    font-family: 'Jura', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: larger;
+}
