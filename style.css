@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*dark mode*/
+:root{
+    --bg-main:#18122B;
+    --bg-prime:#e4ebfc;
+    --bg-g2:#FF9F1C;
+    --bg-g1:#5A5F75;
+    --bg-g3:rgba(7, 70, 7, 0.915);
+}
+
+
+/*light mode*/
+:root .darkmode{
+    --bg-prime:#18122B;
+    --bg-main:#e4ebfc;
+    --bg-g2:#5A5F75;
+    --bg-g1:#f7c784;
+    --bg-g3:rgba(7, 182, 7, 0.747);
+}
