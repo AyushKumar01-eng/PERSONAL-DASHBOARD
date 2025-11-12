@@ -100,3 +100,20 @@ main{
     width: 45%;
     min-height: 420px;
 }
+
+.note{
+    border-radius: 8px;
+    margin: 15px 30px;
+    padding: 12px;
+    background-color: var(--bg-g1);
+    position: relative;
+    
+}
+#noteadders{
+    background-color: rgb(223, 223, 224);
+  color: black;
+  padding: 3px;
+  margin: 10px;
+  border-radius: 8px;
+  border: 1.5px solid rgb(22, 21, 21);
+}
