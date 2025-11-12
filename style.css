@@ -117,3 +117,24 @@ main{
   border-radius: 8px;
   border: 1.5px solid rgb(22, 21, 21);
 }
+.linen{
+    background-color: var(--bg-prime);
+    margin: 0 31px 0px;
+    width: 85%;
+    height: 1px;
+}
+
+.quote{
+border-radius: 8px;
+    margin: 20px 30px;
+    padding: 12px;
+    background-color: var(--bg-g2);
+    color: var(--bg-main);
+}
+
+.time{
+    border-radius: 8px;
+    margin: 28px;
+    padding: 12px;
+    background-color: var(--bg-g3);
+}
