@@ -90,3 +90,13 @@ i{
     width: 95%;
     height: 1px;
 }
+
+main{
+    display: flex;
+    justify-content: space-between;
+}
+
+.left{
+    width: 45%;
+    min-height: 420px;
+}
