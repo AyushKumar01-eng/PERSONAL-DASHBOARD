@@ -83,3 +83,10 @@ i{
     margin: 1.5px;
     /* padding: 3px; */
 }
+
+.line{
+    background-color: var(--bg-prime);
+    margin: 0 31px 0px;
+    width: 95%;
+    height: 1px;
+}
