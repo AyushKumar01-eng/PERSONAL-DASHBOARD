@@ -138,3 +138,16 @@ border-radius: 8px;
     padding: 12px;
     background-color: var(--bg-g3);
 }
+
+.weather {
+    background-color: black;
+    margin: 0px 30px;
+    padding: 8px;
+    min-height: 30px;
+    border-radius: 8px;
+}
+
+.right {
+    width: 55%;
+    /* min-height: 400px; */
+}
