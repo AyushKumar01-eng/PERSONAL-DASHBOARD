@@ -151,3 +151,13 @@ border-radius: 8px;
     width: 55%;
     /* min-height: 400px; */
 }
+
+.todolist {
+    background-color: blanchedalmond;
+    border-radius: 8px;
+    margin: 15px 30px;
+    padding: 12px;
+    height: 400px;
+
+}
+
