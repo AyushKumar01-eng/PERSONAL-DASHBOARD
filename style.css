@@ -161,3 +161,10 @@ border-radius: 8px;
 
 }
 
+.notebtn {
+    width: 5rem;
+    height: 1.8rem;
+    background-color: var(--bg-b1);
+    border: 2px solid rgba(34, 34, 34, 0.837);
+    border-radius: 0.5rem;
+}
