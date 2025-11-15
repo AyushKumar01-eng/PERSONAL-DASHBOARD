@@ -3,29 +3,31 @@
     padding: 0;
 }
 
-body{
-    overflow-y: hidden;
-    background-color: var(--bg-main);
-    color: var(--bg-prime);
-}
-
 /*dark mode*/
-:root{
-    --bg-main:#18122B;
-    --bg-prime:#e4ebfc;
-    --bg-g2:#FF9F1C;
-    --bg-g1:#5A5F75;
-    --bg-g3:rgba(7, 70, 7, 0.915);
+:root {
+    --bg-main: #18122B;
+    --bg-prime: #e4ebfc;
+    --bg-g2: #FF9F1C;
+    --bg-g1: #5A5F75;
+    --bg-g3: rgba(7, 70, 7, 0.915);
+    --bg-b1: rgba(62, 172, 241, 0.888);
 }
 
 
 /*light mode*/
-:root .darkmode{
-    --bg-prime:#18122B;
-    --bg-main:#e4ebfc;
-    --bg-g2:#5A5F75;
-    --bg-g1:#f7c784;
-    --bg-g3:rgba(7, 182, 7, 0.747);
+:root .darkmode {
+    --bg-prime: #18122B;
+    --bg-main: #e4ebfc;
+    --bg-g2: #5A5F75;
+    --bg-g1: #f7c784;
+    --bg-g3: rgba(7, 182, 7, 0.747);
+    --bg-b1: rgb(21, 140, 220);
+}
+
+body {
+    overflow-y: hidden;
+    background-color: var(--bg-main);
+    color: var(--bg-prime);
 }
 
 header {
@@ -49,20 +51,21 @@ nav {
     font-size: larger;
 }
 
-#checkbox{
-visibility: hidden;
+#checkbox {
+    visibility: hidden;
 }
 
-.togglebtn{
+.togglebtn {
     width: 4.2rem;
     height: 2rem;
     background-color: var(--bg-prime);
     display: inline-block;
     position: relative;
     border-radius: 10rem;
-    
+
 }
-.ball{
+
+.ball {
     width: 1.8rem;
     height: 1.8rem;
     background-color: var(--bg-main);
@@ -74,69 +77,84 @@ visibility: hidden;
     transition: all 0.5s;
 }
 
-#checkbox:checked + .togglebtn .ball{
+#checkbox:checked+.togglebtn .ball {
     transform: translateX(2.2rem);
 }
 
-i{
+i {
     font-size: 20px;
     margin: 1.5px;
     /* padding: 3px; */
 }
 
-.line{
+.line {
     background-color: var(--bg-prime);
     margin: 0 31px 0px;
     width: 95%;
     height: 1px;
 }
 
-main{
+main {
     display: flex;
     justify-content: space-between;
 }
 
-.left{
+.left {
     width: 45%;
     min-height: 420px;
 }
 
-.note{
+.note {
     border-radius: 8px;
     margin: 15px 30px;
     padding: 12px;
     background-color: var(--bg-g1);
     position: relative;
-    
+    overflow: scroll;
 }
-#noteadders{
+
+#noteadders {
+    width: 13rem;
     background-color: rgb(223, 223, 224);
-  color: black;
-  padding: 3px;
-  margin: 10px;
-  border-radius: 8px;
-  border: 1.5px solid rgb(22, 21, 21);
+    color: black;
+    padding: 0.5rem;
+    margin: 0.5rem 2.5rem;
+    border-radius: 8px;
+    border: 1.5px solid rgb(22, 21, 21);
 }
-.linen{
+
+.linen {
     background-color: var(--bg-prime);
     margin: 0 31px 0px;
     width: 85%;
     height: 1px;
 }
 
-.quote{
-border-radius: 8px;
+.dlt {
+    position: absolute;
+    left: 25rem;
+    bottom: 2.3rem;
+    width: 5rem;
+    height: 1.8rem;
+    background-color: var(--bg-b1);
+    border: 2px solid rgba(34, 34, 34, 0.837);
+    border-radius: 0.5rem;
+}
+
+.quote {
+    border-radius: 8px;
     margin: 20px 30px;
     padding: 12px;
     background-color: var(--bg-g2);
     color: var(--bg-main);
 }
 
-.time{
+.time {
     border-radius: 8px;
     margin: 28px;
     padding: 12px;
     background-color: var(--bg-g3);
+
 }
 
 .weather {
@@ -168,3 +186,4 @@ border-radius: 8px;
     border: 2px solid rgba(34, 34, 34, 0.837);
     border-radius: 0.5rem;
 }
+
