@@ -13,6 +13,19 @@ mode.addEventListener('change', () => {
 
 //NOTES PAD
 
+const noteContainer = document.querySelector('.note')
+
+function attachAddListener(input, button) {
+    button.addEventListener('click', () => {
+        const val = input.value.trim()
+        if (val !== '') {
+            localStorage.setItem('note', val)
+            input.value = ''
+            render()
+        }
+    });
+}
+
 function render() {
     const stored = localStorage.getItem('note');
     if (stored) {
@@ -33,7 +46,7 @@ function render() {
     `
         const input = document.getElementById('noteadders')
         const addBtn = noteContainer.querySelector('.notebtn')
-console.log(input,addBtn);
+        attachAddListener(input, addBtn)
     }
 }
 
