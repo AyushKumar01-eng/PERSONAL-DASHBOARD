@@ -115,6 +115,7 @@ main {
     background-color: var(--bg-g1);
     position: relative;
     overflow: scroll;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 #noteadders {
@@ -147,12 +148,14 @@ main {
     padding: 12px;
     background-color: var(--bg-g2);
     color: var(--bg-prime);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .time {
     border-radius: 8px;
     margin: 28px;
     padding: 14px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     background-color: var(--bg-g3);
 }
 
@@ -175,7 +178,7 @@ main {
     margin: 15px 30px;
     padding: 12px;
     height: 400px;
-
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .notebtn {
