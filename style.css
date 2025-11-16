@@ -3,25 +3,29 @@
     padding: 0;
 }
 
-/*dark mode*/
+/*light mode*/
 :root {
-    --bg-main: #18122B;
-    --bg-prime: #e4ebfc;
-    --bg-g2: #FF9F1C;
-    --bg-g1: #5A5F75;
-    --bg-g3: rgba(7, 70, 7, 0.915);
-    --bg-b1: rgba(62, 172, 241, 0.888);
+    --bg-prime: #18122B;
+    --bg-main: #e4ebfc;
+    --bg-g1: #5a5f75d8;
+    --bg-g2: #011936;
+    --bg-g3: #072830;
+    --bg-b1: #00000D;
+    --bg-b2: #323652;
+    --bg-btn: #fffff0;
 }
 
 
-/*light mode*/
+/*dark mode*/
 :root .darkmode {
-    --bg-prime: #18122B;
-    --bg-main: #e4ebfc;
-    --bg-g2: #5A5F75;
-    --bg-g1: #f7c784;
-    --bg-g3: rgba(7, 182, 7, 0.747);
-    --bg-b1: rgb(21, 140, 220);
+    --bg-main: #18122B;
+    --bg-prime: #e4ebfc;
+    --bg-g1: #5A5F75;
+    --bg-g2: #011936;
+    --bg-g3: #072830;
+    --bg-b1: #00000D;
+    --bg-b2: #323652;
+
 }
 
 body {
@@ -120,7 +124,7 @@ main {
     padding: 0.5rem;
     margin: 0.5rem 2.5rem;
     border-radius: 8px;
-    border: 1.5px solid rgb(22, 21, 21);
+    border: 2px solid rgba(11, 11, 11, 0.927);
 }
 
 .linen {
@@ -142,11 +146,12 @@ main {
 }
 
 .quote {
+    min-height: 10rem;
     border-radius: 8px;
     margin: 20px 30px;
     padding: 12px;
     background-color: var(--bg-g2);
-    color: var(--bg-main);
+    color: var(--bg-prime);
 }
 
 .time {
@@ -158,7 +163,7 @@ main {
 }
 
 .weather {
-    background-color: black;
+    background-color: var(--bg-b1);
     margin: 0px 30px;
     padding: 8px;
     min-height: 30px;
@@ -167,11 +172,14 @@ main {
 
 .right {
     width: 55%;
-    /* min-height: 400px; */
+    border-radius: 10px;
+    /* height: 28rem;
+    margin-top: 10px; */
+    background-color: var(--bg-g1);
 }
 
 .todolist {
-    background-color: blanchedalmond;
+    background-color: var(--bg-b2);
     border-radius: 8px;
     margin: 15px 30px;
     padding: 12px;
@@ -182,8 +190,7 @@ main {
 .notebtn {
     width: 5rem;
     height: 1.8rem;
-    background-color: var(--bg-b1);
-    border: 2px solid rgba(34, 34, 34, 0.837);
+    background-color: var(--bg-btn);
+    border: 3px solid rgba(11, 11, 11, 0.927);
     border-radius: 0.5rem;
 }
-
