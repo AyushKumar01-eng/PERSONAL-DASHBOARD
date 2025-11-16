@@ -7,11 +7,11 @@
 :root {
     --bg-prime: #18122B;
     --bg-main: #e4ebfc;
-    --bg-g1: #5a5f75d8;
-    --bg-g2: #011936;
-    --bg-g3: #072830;
-    --bg-b1: #00000D;
-    --bg-b2: #323652;
+    --bg-g1: #b9c7d2;
+    --bg-g2: #adede1;
+    --bg-g3: #b7e6ec;
+    --bg-b1: #9cb3db;
+    --bg-b2: #A6A7C3;
     --bg-btn: #fffff0;
 }
 
@@ -138,11 +138,6 @@ main {
     position: absolute;
     left: 25rem;
     bottom: 2.3rem;
-    width: 5rem;
-    height: 1.8rem;
-    background-color: var(--bg-b1);
-    border: 2px solid rgba(34, 34, 34, 0.837);
-    border-radius: 0.5rem;
 }
 
 .quote {

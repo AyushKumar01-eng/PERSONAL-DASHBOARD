@@ -32,7 +32,7 @@ function render() {
         noteContainer.innerHTML = `
       <h1>TODAY'S NOTE:</h1>
       <h3>${stored}</h3>
-      <button class="dlt">Delete Note</button>
+      <button class="dlt notebtn">Delete Note</button>
     `
         const delBtn = noteContainer.querySelector('.dlt')
         delBtn.addEventListener('click', () => {
