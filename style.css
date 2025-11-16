@@ -105,11 +105,12 @@ main {
 
 .left {
     width: 45%;
-    min-height: 420px;
+    height: 7rem;
 }
 
 .note {
     border-radius: 8px;
+    min-height: 4em;
     margin: 15px 30px;
     padding: 12px;
     background-color: var(--bg-g1);
@@ -152,7 +153,7 @@ main {
 .time {
     border-radius: 8px;
     margin: 28px;
-    padding: 12px;
+    padding: 14px;
     background-color: var(--bg-g3);
 
 }
@@ -168,9 +169,6 @@ main {
 .right {
     width: 55%;
     border-radius: 10px;
-    /* height: 28rem;
-    margin-top: 10px; */
-    background-color: var(--bg-g1);
 }
 
 .todolist {
