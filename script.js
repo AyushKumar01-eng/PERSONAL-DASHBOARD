@@ -62,6 +62,8 @@ function randomnumgen() {
 
 function quotesmanager() {
 
+    const quotedv =  document.querySelector('.disquote')
+
     const quotes = [
         "Courage is an inner light that thrives when you admit your fear.",
         "Growth begins when you stop performing and start listening to yourself.",
@@ -263,9 +265,16 @@ function quotesmanager() {
         "What you practice in private you will perform in public.",
         "A generous heart is forged by honest, disciplined self-work."
     ]
-    let randomnum = randomnumgen()
-    // document.querySelector('.disquote').innerHTML =quotes[randomnum]
-    console.log(quotes[randomnum]);
+        let randomnum = randomnumgen()
+      quotedv.innerHTML  = quotes[randomnum]
+
+
+    //   quotedv.innerHTML  = "WANT MOTIVATION CLICK THE BUTTON"
+
+    document.querySelector('.disbtn').addEventListener('click', ()=>{
+        let randomnum = randomnumgen()
+      quotedv.innerHTML  = quotes[randomnum]
+    })
 
 }
 
