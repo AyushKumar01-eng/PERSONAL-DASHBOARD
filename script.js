@@ -59,7 +59,6 @@ function randomnumgen() {
     return r
 }
 
-
 function quotesmanager() {
 
     const quotedv = document.querySelector('.disquote')
@@ -68,95 +67,114 @@ function quotesmanager() {
         "Courage is an inner light that thrives when you admit your fear.",
         "Growth begins when you stop performing and start listening to yourself.",
         "Pain is a teacher — attend the lesson, then choose a new path.",
+        0,
         "Your quieter choices shape the loudest parts of your life.",
         "Resilience is patience practiced every time you decide to stand again.",
         "The hardest truths are bridges to a clearer, kinder self.",
         "You are not your mistake; you are the hand that learns from it.",
+        0,
         "Purpose grows when you do small things for ordinary reasons.",
         "The mind is a room — tidy the corners to change the whole view.",
         "When you accept who you are, you borrow strength from reality.",
         "Fear is a signal, not a sentence — act with curiosity.",
         "Bravery is the art of continuing with soft hands and steady feet.",
+        0,
         "Suffering deepens your compass; let it point you toward meaning.",
         "Every quiet decision compounds into a life you either admire or avoid.",
         "To change your future, treat today like an experiment, not a verdict.",
         "Honesty with yourself is the beginning of real freedom.",
         "Vulnerability is the doorway; authenticity is the life on the other side.",
+        0,
         "Let your curiosity outgrow your certainty.",
         "Gratitude rewires the mind to find footholds in difficult terrain.",
         "You can carry grief and still make room for joy.",
         "Growth asks you to trade comfort for possibility, one small step at a time.",
         "The voice that criticizes can also be trained to encourage.",
+        0,
         "Meaning is crafted, not found — make it with your hands and hours.",
         "Change requires both forgiveness and a plan.",
         "Listen to the parts of you that have been whispering for attention.",
         "Authority over yourself is the most liberating form of power.",
         "Hope is a practice: show up and take the next sensible action.",
+        0,
         "Healing happens when you name what you feel and refuse to hide it.",
         "The present is a thin place where courage and choice meet.",
         "You are allowed to outgrow what once sustained you.",
         "Inner quiet gives you room to hear your true wants.",
         "Simplicity often reveals the solutions complexity hid from you.",
+        0,
         "Progress is better measured by direction than by speed.",
         "Fear loses its shape when you move toward it with purpose.",
         "You become fluent in whatever you practice in private.",
         "Boundaries are love expressed to yourself so you can love others better.",
         "The secret to endurance is an honest pace and clear priorities.",
+        0,
         "If your life feels heavy, ask which promises you made that no longer fit.",
         "Curiosity can soften judgment and open new doors.",
         "You are the steward of your attention — guard it wisely.",
         "Failure is a draft, not the final edition of your story.",
         "Success built on values survives storms; success built on image collapses.",
+        0,
         "Small, daily advances heal what dramatic gestures cannot.",
         "The ache you feel is often the place where courage grows.",
         "Authenticity costs something, but it returns everything that pretending steals.",
         "Confidence comes from showing up enough times to trust yourself.",
         "The hardest conversations steer you toward clearer, kinder relationships.",
+        0,
         "Ask better questions; your answers will improve quietly but surely.",
         "A steady heart can outlast a brilliant idea.",
         "You cannot pour from an empty cup — refill without guilt.",
         "Grief and gratitude can coexist — both honor what mattered.",
         "Clarity arrives when you stop living according to other people's drafts.",
+        0,
         "Your limits are invitations to refine strategy, not reasons to stop.",
         "Listen to silence — it often holds the map you need.",
         "Choosing yourself sometimes means saying no to a thousand good things.",
         "Heat tempers steel; pressure clarifies purpose.",
         "Time reveals what you protect and what you ignore.",
+        0,
         "Patience directed is more useful than passion unfocused.",
         "The stories you tell yourself are the scaffolding for your life.",
         "Change is more tolerable when paired with ritual and small wins.",
         "Confidence is built by finishing things you promised yourself.",
         "The mind can betray you; train it gently and consistently.",
+        0,
         "Your future self will thank you for the tiny acts you do now.",
         "Freedom begins where self-deception ends.",
         "Regret is a signal — listen, learn, then design a better next move.",
         "Discomfort is the raw material of transformation.",
         "When you stop proving and start contributing, your work breathes.",
+        0,
         "Compassion toward yourself increases the bandwidth to help others.",
         "The quieter you become, the more clearly you can hear your path.",
         "Change comes in increments — celebrate the small revolutions.",
         "Agency grows when you accept responsibility for things within your reach.",
         "To heal, first be willing to look at the wound without flinching.",
+        0,
         "The inner critic is loud — turn the volume down with gratitude.",
-        "Meaningful work is rarely tidy; it’s persistent and honest.",
+        "Meaningful work is rarely tidy; it's persistent and honest.",
         "Surrender isn't giving up; it's choosing where to stop fighting what is.",
         "Your attention is a scarce resource — invest it like capital.",
         "Ask less of outcomes and more of the effort you control.",
+        0,
         "Strength without softness becomes brittle; balance is the deeper power.",
         "Doubt can be an ally if it makes you prepare more wisely.",
         "The habits you keep are the character you build.",
         "Forgiveness frees the forgiver before it touches the forgiven.",
         "Anxiety often points to a story that needs rewriting.",
+        0,
         "Clarity begins when you name the feelings beneath your actions.",
         "The smallest compassionate act can reroute a spiral of despair.",
         "Adversity tests the design of your life; it doesn't have to define it.",
         "Courage is practicing honesty even when the outcome is uncertain.",
         "Your limits are maps, not walls — explore their edges.",
+        0,
         "Purpose is discovered by doing, not by waiting to feel ready.",
         "You change the world quietly by showing up consistently for one person.",
         "The future is negotiated daily through the commitments you keep.",
         "Let curiosity be the antidote to rigid certainty.",
         "Inner work is messy but yields the truest freedom.",
+        0,
         "You are more than your habits; you can redesign them one choice at a time.",
         "When you embrace discomfort you expand the range of your life.",
         "Hope without action is a wish; action without hope is empty labor.",
@@ -200,7 +218,7 @@ function quotesmanager() {
         "When you simplify your inner life, decisions become easier and clearer.",
         "Presence is an act of courage in a distracted world.",
         "Your greatest project is the person you become over time.",
-        "Self-care is not indulgence; it’s preparation for contribution.",
+        "Self-care is not indulgence; it's preparation for contribution.",
         "The mind reorganizes with new habits; be patient with the architecture.",
         "Hard truths are medicine — they hurt but they heal.",
         "Let go of outcomes you can't control; steward what you can.",
@@ -244,15 +262,15 @@ function quotesmanager() {
         "The deepest work you do is often unseen by others.",
         "Discipline is choosing what you want most over what you want now.",
         "When you feel lost, you're actually being redirected.",
-        "You won’t always be motivated. Learn to be consistent.",
+        "You won't always be motivated. Learn to be consistent.",
         "Rock bottom often becomes the foundation for the strongest version of you.",
         "You grow when you do the thing you least want to do.",
         "If nothing changes, nothing changes — take the first step.",
         "Your future self is quietly begging you to start today.",
-        "You don’t need more time, you need more honesty with yourself.",
+        "You don't need more time, you need more honesty with yourself.",
         "Being uncomfortable is the tax you pay for leveling up.",
         "Life changes the moment you stop expecting and start doing.",
-        "Courage is not loud; sometimes it's a whisper saying ‘try again.’",
+        "Courage is not loud; sometimes it's a whisper saying 'try again.'",
         "Your habits are votes for the person you want to become.",
         "The version of you that you fear becoming is usually the one you need to face.",
         "Courage is choosing what to carry and what to leave behind.",
@@ -262,18 +280,25 @@ function quotesmanager() {
         "Persistence isn't glamorous — it's mostly showing up on hard days.",
         "Let curiosity lead when certainty is not available.",
         "Small wins are steady deposits toward meaningful change.",
+        0,
         "What you practice in private you will perform in public.",
         "A generous heart is forged by honest, disciplined self-work."
     ]
 
-    let randomnum = randomnumgen()
-    quotedv.innerHTML = quotes[randomnum]
-
-    document.querySelector('.disbtn').addEventListener('click', () => {
+    function displayQuote() {
         let randomnum = randomnumgen()
-        quotedv.innerHTML = quotes[randomnum]
-    })
+        if (quotes[randomnum] === 0) {
+            alert("AUR KITNA MOTIVATION LEGA, KAAM KRNA KA TIME NIKALTA JA RHA HAI, KUCH TOH KHYAL KRR FARAZ")
+        } else {
+            quotedv.innerHTML = quotes[randomnum]
+        }
+    }
 
+    // Display initial quote
+    displayQuote()
+
+    // Add event listener for button
+    document.querySelector('.disbtn').addEventListener('click', displayQuote)
 }
 
 quotesmanager()
