@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-/*light mode*/
+/*dark mode*/
 :root {
     --bg-main: #18122B;
     --bg-prime: #e4ebfc;
@@ -13,11 +13,12 @@
     --bg-b1: #00000D;
     --bg-b2: #323652;
     --bg-btn: #fffff0;
+    --bg-modal: #18122B;
 
 }
 
 
-/*dark mode*/
+/*light mode*/
 :root .darkmode {
     --bg-prime: #18122B;
     --bg-main: #e4ebfc;
@@ -27,6 +28,7 @@
     --bg-b1: #a7b9d9;
     --bg-b2: #cfcfe2;
     --bg-btn: #fffff0;
+    --bg-modal: #a497cf;
 }
 
 body {
@@ -35,8 +37,8 @@ body {
     color: var(--bg-prime);
 }
 
-h3{
-padding: 0.5rem;
+h3 {
+    padding: 0.5rem;
 }
 
 header {
@@ -201,4 +203,51 @@ main {
     position: absolute;
     bottom: 13rem;
     left: 30em;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)scale(0);
+    border: 2px solid var(--bg-prime);
+    border-radius: 10px;
+    z-index: 10;
+    background-color: var(--bg-modal);
+    width: 500px;
+    max-width: 80%;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.708);
+}
+
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.8px solid var(--bg-prime);
+}
+
+.closebtn {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 8px;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    background-color: #00000da4;
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
 }
