@@ -75,7 +75,6 @@ function quotesmanager() {
         "Deep breathing is our nervous system’s love language.",
         "Developing and maintaining a healthy gut will support a healthy mind.",
         "Don’t let your mind bully your body into believing it must carry the burden of its worries.",
-        0,
         "Hope is being able to see that there is light despite all the darkness.",
         "Early intervention is crucial.",
         "Every day begins with an act of courage and hope: getting out of bed.",
@@ -92,7 +91,6 @@ function quotesmanager() {
         "Rest is not weakness. It’s nourishment.",
         "Stop shrinking to fit spaces that no longer hold you.",
         "Being kind to yourself is not optional. It’s essential.",
-        0,
         "You don’t have to prove your pain to deserve healing.",
         "You’re allowed to be both a masterpiece and a work in progress.",
         "You’re already enough. You always were.",
@@ -256,8 +254,6 @@ function quotesmanager() {
             const modal = document.querySelector(openmodalbtn.dataset.modalTarget)
             openmodal(modal, overlay)
         } else {
-            console.log(quotes.length);
-            
             quotedv.innerHTML = `"${quotes[randomnum]}"`
         }
     }
@@ -274,7 +270,10 @@ quotesmanager()
         const modal = document.getElementById('modal')
        closemodal(modal, overlay)
     })
-
+    overlay.addEventListener('click', ()=>{
+        const modals = document.querySelector('.active')
+    closemodal(modals, overlay)   
+ })
 function openmodal(modal, overlay) {
     if (modal == null) return
     else {

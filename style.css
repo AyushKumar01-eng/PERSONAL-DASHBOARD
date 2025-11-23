@@ -216,6 +216,7 @@ main {
     z-index: 10;
     background-color: var(--bg-modal);
     width: 500px;
+    height: 150px;
     max-width: 80%;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.708);
 }
