@@ -54,6 +54,7 @@ render()
 
 
 //QUOTES WITH REFRESH BUTTON
+
 function randomnumgen() {
     let r = Math.floor(Math.random() * 183)
     return r
@@ -247,6 +248,7 @@ function quotesmanager() {
 
     const openmodalbtn = document.querySelector('[data-modal-target]')
     const overlay = document.getElementById('overlay')
+
     function displayQuote() {
         let randomnum = randomnumgen()
         if (quotes[randomnum] === 0) {
@@ -266,14 +268,19 @@ function quotesmanager() {
 
 quotesmanager()
 
-   document.querySelector('.closebtn').addEventListener('click', () => {
-        const modal = document.getElementById('modal')
-       closemodal(modal, overlay)
-    })
-    overlay.addEventListener('click', ()=>{
-        const modals = document.querySelector('.active')
-    closemodal(modals, overlay)   
- })
+
+
+document.querySelector('.closebtn').addEventListener('click', () => {
+    const modal = document.getElementById('modal')
+    closemodal(modal, overlay)
+})
+overlay.addEventListener('click', () => {
+    const modals = document.querySelector('.active')
+    closemodal(modals, overlay)
+})
+
+
+
 function openmodal(modal, overlay) {
     if (modal == null) return
     else {
@@ -291,8 +298,19 @@ function closemodal(modal, overlay) {
 }
 
 //TIME API
+function updateDateTime() {
+        const now = new Date();
+        // Format as you like, here using locale string
+        const dateStr = now.toLocaleDateString();
+        const timeStr = now.toLocaleTimeString();
 
+        document.getElementById("time").textContent = dateStr + '\n' + timeStr;
+      }
 
+      // Call first time immediately so there's no delay
+      updateDateTime();
+      // Then update every second
+      setInterval(updateDateTime, 1000);
 
 //WEATHER API
 
