@@ -254,7 +254,8 @@ function quotesmanager() {
         if (quotes[randomnum] === 0) {
             quotedv.innerHTML = ''
             const modal = document.querySelector(openmodalbtn.dataset.modalTarget)
-            openmodal(modal, overlay)
+            const line = `AUR KITNA MOTIVATION LEGA BHOSDI`
+            openmodal(modal, overlay, line)
         } else {
             quotedv.innerHTML = `"${quotes[randomnum]}"`
         }
@@ -281,11 +282,12 @@ overlay.addEventListener('click', () => {
 
 
 
-function openmodal(modal, overlay) {
+function openmodal(modal, overlay, dialogue) {
     if (modal == null) return
     else {
         modal.classList.add("active")
         overlay.classList.add("active")
+        document.getElementById('modalbody').innerHTML=dialogue
     }
 }
 function closemodal(modal, overlay) {
@@ -304,11 +306,18 @@ function updateDateTime() {
         const dateStr = now.toLocaleDateString()
         const timeStr = now.toLocaleTimeString()
 
-        document.getElementById("time").textContent = dateStr + '\n' + timeStr
+        document.getElementById("date").innerHTML = `<h3> ${dateStr} </h3>`
+        document.getElementById('timedis').innerHTML=`<h5> ${timeStr} </h5>`
       }
 
       updateDateTime()
       setInterval(updateDateTime, 1000)
+
+      document.getElementById('time').addEventListener('click', ()=>{
+       const text = `samay mtt dekh kamm krr`   
+       if(randomnumgen()%2===0)     
+          openmodal(modal, overlay, text)
+      })
 
 //WEATHER API
 
