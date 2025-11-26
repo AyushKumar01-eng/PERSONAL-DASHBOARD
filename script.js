@@ -298,19 +298,17 @@ function closemodal(modal, overlay) {
 }
 
 //TIME API
-function updateDateTime() {
-        const now = new Date();
-        // Format as you like, here using locale string
-        const dateStr = now.toLocaleDateString();
-        const timeStr = now.toLocaleTimeString();
 
-        document.getElementById("time").textContent = dateStr + '\n' + timeStr;
+function updateDateTime() {
+        const now = new Date()
+        const dateStr = now.toLocaleDateString()
+        const timeStr = now.toLocaleTimeString()
+
+        document.getElementById("time").textContent = dateStr + '\n' + timeStr
       }
 
-      // Call first time immediately so there's no delay
-      updateDateTime();
-      // Then update every second
-      setInterval(updateDateTime, 1000);
+      updateDateTime()
+      setInterval(updateDateTime, 1000)
 
 //WEATHER API
 
