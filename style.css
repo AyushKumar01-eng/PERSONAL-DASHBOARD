@@ -119,7 +119,7 @@ main {
 
 .note {
     border-radius: 8px;
-    min-height: 4em;
+    min-height: 4.7rem;
     margin: 15px 30px;
     padding: 12px;
     background-color: var(--bg-g1);
@@ -154,7 +154,7 @@ main {
 .quote {
     height: 10rem;
     border-radius: 8px;
-    margin: 20px 30px;
+    margin: 6px 30px;
     padding: 12px;
     background-color: var(--bg-g2);
     color: var(--bg-prime);
@@ -167,10 +167,11 @@ main {
     color: var(--bg-tf);
     font-size: 2rem;
     border-radius: 8px;
-    margin: 20px 10px 20px 75px;
+    margin: 12px 10px 20px 75px;
     padding: 14px 20px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     width: 55%;
+    cursor: pointer;
 }
 #date{
     text-align: center;
@@ -213,6 +214,7 @@ main {
     background-color: var(--bg-btn);
     border: 3px solid rgba(11, 11, 11, 0.927);
     border-radius: 0.5rem;
+    cursor: pointer;
 }
 
 .disquote {
@@ -281,3 +283,7 @@ main {
     opacity: 1;
     pointer-events: all;
 }
+
+
+
+/* fix time,fix note */
