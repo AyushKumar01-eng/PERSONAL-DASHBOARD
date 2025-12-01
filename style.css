@@ -24,7 +24,7 @@
     --bg-g1: #c4d5e2;
     --bg-g2: #d2ece8;
     --bg-g3: #c3eff5;
-    --bg-b1: #a7b9d9;
+    --bg-b1: #89aae2;
     --bg-b2: #cfcfe2;
     --bg-btn: #fffff0;
     --bg-modal: #a497cf;
@@ -204,11 +204,7 @@ main {
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;
-    right: 200px;
     align-items: center;
-}
-h3{
-    left: 200px;
 }
 
 .right {

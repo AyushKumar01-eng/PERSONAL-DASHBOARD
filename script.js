@@ -269,7 +269,9 @@ function quotesmanager() {
 
 quotesmanager()
 
-
+document.addEventListener('DOMContentLoaded', ()=>{
+    document.querySelector('.disquote').innerHTML = 'REALITY SUCKS, Chase Your DREAMS'
+})
 
 document.querySelector('.closebtn').addEventListener('click', () => {
     const modal = document.getElementById('modal')
@@ -329,18 +331,19 @@ async function weathercontrol(){
  return await api.json()
 }
 
-document.addEventListener('DOMContentLoaded', async(params)=> {
-       navigator.geolocation.getCurrentPosition(async(position)=>{
-const result = await weatherdata(position.coords.latitude, position.coords.longitude)   
+document.addEventListener('DOMContentLoaded', async()=> {
 
-console.log(result.current.condition.text);
+       navigator.geolocation.getCurrentPosition(async(position)=>{
+
+const result = await weatherdata(position.coords.latitude, position.coords.longitude)   
 
 const weather = result.current.condition.text
 const temp =result.current.temp_c
 const icon = result.current.condition.icon
+
 document.querySelector('.weather').innerHTML = `
         <a href="https://www.weatherapi.com/" title="Free Weather API"><img src='${icon}' alt="Weather data by WeatherAPI.com" border="0"></a>
-        <h3>It’s currently ${weather} in your area, with a temperature of ${temp}.</h3>
+        <h3>It’s currently ${weather} in your area, with a temperature of ${temp}, focus on your todos.</h3>
         `
 
     }, ()=>{
@@ -348,7 +351,6 @@ document.querySelector('.weather').innerHTML = `
     })
     
 })
-
 
 }
 
