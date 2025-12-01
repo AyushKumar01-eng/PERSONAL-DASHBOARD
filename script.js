@@ -343,11 +343,11 @@ const icon = result.current.condition.icon
 
 document.querySelector('.weather').innerHTML = `
         <a href="https://www.weatherapi.com/" title="Free Weather API"><img src='${icon}' alt="Weather data by WeatherAPI.com" border="0"></a>
-        <h3>It’s currently ${weather} in your area, with a temperature of ${temp}, focus on your todos.</h3>
+        <h3>It’s currently ${weather} in your area, with a temperature of ${temp} (WHO CARES), focus on your todos.</h3>
         `
 
     }, ()=>{
-        console.log('THERE AN ISSUE');
+       alert('THERE AN ISSUE');
     })
     
 })
@@ -357,7 +357,3 @@ document.querySelector('.weather').innerHTML = `
  weathercontrol()
 
 //TODOLIST
-
-
-
-//no chance rakhna quotes
