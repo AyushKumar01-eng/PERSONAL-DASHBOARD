@@ -299,7 +299,7 @@ function closemodal(modal, overlay) {
     }
 }
 
-//TIME API
+//TIME DISPLAY
 
 function updateDateTime() {
         const now = new Date()
@@ -321,6 +321,37 @@ function updateDateTime() {
 
 //WEATHER API
 
+// will track user get city give weather and icon
+async function weathercontrol(){
+    
+ async function weatherdata(lat, lon) {
+ const api = await fetch(`http://api.weatherapi.com/v1/current.json?key=a94b429a14a94bf2874213638250112&q=${lat},${lon}`)   
 
+ return await api.json()
+}
+
+document.getElementById('getloc').addEventListener('click', async(params)=> {
+       navigator.geolocation.getCurrentPosition(async(position)=>{
+const result = await weatherdata(position.coords.latitude, position.coords.longitude)   
+
+const weather = result.current.condition.text
+const temp =result.current.temp_c
+const icon = result.current.condition.icon
+
+
+    }, ()=>{
+        console.log('THERE AN ISSUE');
+    })
+    
+})
+
+
+}
+
+ weathercontrol()
 
 //TODOLIST
+
+
+
+//no chance rakhna quotes

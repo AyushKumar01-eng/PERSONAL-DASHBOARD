@@ -1,7 +1,5 @@
-* {
-    margin: 0;
-    padding: 0;
-}
+* { margin: 0; padding: 0;}
+
 
 /*dark mode*/
 :root {
@@ -16,7 +14,6 @@
     --bg-modal: #18122B;
     --bg-time: rgba(255, 255, 255, 0.05);
     --bg-tf: #00ddff;
-
 }
 
 
@@ -34,6 +31,8 @@
     --bg-time: rgba(255, 255, 255, 0.05);
     --bg-tf: #00ddff;
 }
+
+
 
 body {
     overflow-y: hidden;
@@ -58,7 +57,6 @@ nav {
     font-size: 25px;
     margin: 0px 17px;
 }
-
 .logo {
     font-family: 'Jura', sans-serif;
     font-weight: 700;
@@ -69,7 +67,6 @@ nav {
 #checkbox {
     visibility: hidden;
 }
-
 .togglebtn {
     width: 4.2rem;
     height: 2rem;
@@ -78,7 +75,6 @@ nav {
     position: relative;
     border-radius: 10rem;
 }
-
 .ball {
     width: 1.8rem;
     height: 1.8rem;
@@ -90,16 +86,13 @@ nav {
     top: .0945rem;
     transition: all 0.5s;
 }
-
 #checkbox:checked+.togglebtn .ball {
     transform: translateX(2.2rem);
 }
-
 i {
     font-size: 20px;
     margin: 1.5px;
 }
-
 .line {
     background-color: var(--bg-prime);
     margin: 0 31px 0px;
@@ -127,24 +120,29 @@ main {
     overflow: scroll;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
-
 #noteadders {
     width: 13rem;
     background-color: rgb(223, 223, 224);
     color: black;
-    padding: 0.5rem;
-    margin: 0.5rem 2.5rem;
+    padding: 0.7rem;
+    margin: 0.9rem 2.5rem;
     border-radius: 8px;
     border: 2px solid rgba(11, 11, 11, 0.927);
 }
-
+.notebtn {
+    width: 5rem;
+    min-height: 1.8rem;
+    background-color: var(--bg-btn);
+    border: 3px solid rgba(11, 11, 11, 0.927);
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
 .linen {
     background-color: var(--bg-prime);
     margin: 0 31px 0px;
     width: 85%;
     height: 1px;
 }
-
 .dlt {
     position: absolute;
     left: 25rem;
@@ -160,6 +158,17 @@ main {
     color: var(--bg-prime);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     overflow-y: scroll;
+}
+.disquote {
+    font-size: 1.5rem;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+.disbtn {
+    position: absolute;
+    bottom: 12.5rem;
+    left: 32em;
 }
 
 #time {
@@ -185,6 +194,7 @@ main {
     letter-spacing: 4px;
     text-shadow: 0 0 20px #00ffcc;
 }
+
 .weather {
     background-color: var(--bg-b1);
     margin: 0px 30px;
@@ -208,28 +218,6 @@ main {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
-.notebtn {
-    width: 5rem;
-    min-height: 1.8rem;
-    background-color: var(--bg-btn);
-    border: 3px solid rgba(11, 11, 11, 0.927);
-    border-radius: 0.5rem;
-    cursor: pointer;
-}
-
-.disquote {
-    font-size: 1.5rem;
-    font-family: "Pacifico", cursive;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.disbtn {
-    position: absolute;
-    bottom: 12.5rem;
-    left: 32em;
-}
-
 .modal {
     position: fixed;
     top: 50%;
@@ -245,11 +233,9 @@ main {
     max-width: 80%;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.708);
 }
-
 .modal.active {
     transform: translate(-50%, -50%)scale(1);
 }
-
 .modal-header {
     padding: 10px 15px;
     display: flex;
@@ -257,12 +243,10 @@ main {
     align-items: center;
     border-bottom: 1.8px solid var(--bg-prime);
 }
-
 .closebtn {
     font-size: x-large;
     font-weight: bold;
 }
-
 .modal-body {
     padding: 8px;
 }
@@ -278,12 +262,7 @@ main {
     transition: 0.5s ease-out;
     pointer-events: none;
 }
-
 #overlay.active {
     opacity: 1;
     pointer-events: all;
 }
-
-
-
-/* fix time,fix note */
