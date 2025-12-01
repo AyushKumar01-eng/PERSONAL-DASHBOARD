@@ -321,7 +321,6 @@ function updateDateTime() {
 
 //WEATHER API
 
-// will track user get city give weather and icon
 async function weathercontrol(){
     
  async function weatherdata(lat, lon) {
@@ -330,14 +329,19 @@ async function weathercontrol(){
  return await api.json()
 }
 
-document.getElementById('getloc').addEventListener('click', async(params)=> {
+document.addEventListener('DOMContentLoaded', async(params)=> {
        navigator.geolocation.getCurrentPosition(async(position)=>{
 const result = await weatherdata(position.coords.latitude, position.coords.longitude)   
+
+console.log(result.current.condition.text);
 
 const weather = result.current.condition.text
 const temp =result.current.temp_c
 const icon = result.current.condition.icon
-
+document.querySelector('.weather').innerHTML = `
+        <a href="https://www.weatherapi.com/" title="Free Weather API"><img src='${icon}' alt="Weather data by WeatherAPI.com" border="0"></a>
+        <h3>It’s currently ${weather} in your area, with a temperature of ${temp}.</h3>
+        `
 
     }, ()=>{
         console.log('THERE AN ISSUE');
