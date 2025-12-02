@@ -1,4 +1,5 @@
 //THEME CHANGER
+
 const mode = document.querySelector('#checkbox')
 
 mode.addEventListener('change', () => {
@@ -269,7 +270,7 @@ function quotesmanager() {
 
 quotesmanager()
 
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.disquote').innerHTML = 'REALITY SUCKS, Chase Your DREAMS'
 })
 
@@ -289,7 +290,7 @@ function openmodal(modal, overlay, dialogue) {
     else {
         modal.classList.add("active")
         overlay.classList.add("active")
-        document.getElementById('modalbody').innerHTML=dialogue
+        document.getElementById('modalbody').innerHTML = dialogue
     }
 }
 function closemodal(modal, overlay) {
@@ -304,56 +305,60 @@ function closemodal(modal, overlay) {
 //TIME DISPLAY
 
 function updateDateTime() {
-        const now = new Date()
-        const dateStr = now.toLocaleDateString()
-        const timeStr = now.toLocaleTimeString()
+    const now = new Date()
+    const dateStr = now.toLocaleDateString()
+    const timeStr = now.toLocaleTimeString()
 
-        document.getElementById("date").innerHTML = `<h3> ${dateStr} </h3>`
-        document.getElementById('timedis').innerHTML=`<h5> ${timeStr} </h5>`
-      }
+    document.getElementById("date").innerHTML = `<h3> ${dateStr} </h3>`
+    document.getElementById('timedis').innerHTML = `<h5> ${timeStr} </h5>`
+}
 
-      updateDateTime()
-      setInterval(updateDateTime, 1000)
+updateDateTime()
+setInterval(updateDateTime, 1000)
 
-      document.getElementById('time').addEventListener('click', ()=>{
-       const text = `samay mtt dekh kamm krr`   
-       if(randomnumgen()%2===0)     
-          openmodal(modal, overlay, text)
-      })
+document.getElementById('time').addEventListener('click', () => {
+    const text = `samay mtt dekh kamm krr`
+    if (randomnumgen() % 2 === 0)
+        openmodal(modal, overlay, text)
+})
 
 //WEATHER API
 
-async function weathercontrol(){
-    
- async function weatherdata(lat, lon) {
- const api = await fetch(`http://api.weatherapi.com/v1/current.json?key=a94b429a14a94bf2874213638250112&q=${lat},${lon}`)   
+async function weathercontrol() {
 
- return await api.json()
-}
+    async function weatherdata(lat, lon) {
+        const api = await fetch(`http://api.weatherapi.com/v1/current.json?key=a94b429a14a94bf2874213638250112&q=${lat},${lon}`)
 
-document.addEventListener('DOMContentLoaded', async()=> {
+        return await api.json()
+    }
 
-       navigator.geolocation.getCurrentPosition(async(position)=>{
+    document.addEventListener('DOMContentLoaded', async () => {
 
-const result = await weatherdata(position.coords.latitude, position.coords.longitude)   
+        navigator.geolocation.getCurrentPosition(async (position) => {
 
-const weather = result.current.condition.text
-const temp =result.current.temp_c
-const icon = result.current.condition.icon
+            const result = await weatherdata(position.coords.latitude, position.coords.longitude)
 
-document.querySelector('.weather').innerHTML = `
+            const weather = result.current.condition.text
+            const temp = result.current.temp_c
+            const icon = result.current.condition.icon
+
+            document.querySelector('.weather').innerHTML = `
         <a href="https://www.weatherapi.com/" title="Free Weather API"><img src='${icon}' alt="Weather data by WeatherAPI.com" border="0"></a>
         <h3>It’s currently ${weather} in your area, with a temperature of ${temp} (WHO CARES), focus on your todos.</h3>
         `
 
-    }, ()=>{
-       alert('THERE AN ISSUE');
+        }, () => {
+            alert('AN ISSUE OCCURED WHILE TRYING TO DISPLAY WEATHER');
+            document.querySelector('.weather').innerHTML = '.....CHECK YOUR INTERNET CONNECTION...'
+        })
+
     })
-    
-})
 
 }
 
- weathercontrol()
+weathercontrol()
 
 //TODOLIST
+
+
+//
