@@ -40,7 +40,7 @@ body {
     color: var(--bg-prime);
 }
 
-h3 {
+h3{
     padding: 0.5rem;
 }
 
@@ -150,6 +150,7 @@ main {
 }
 
 .quote {
+    position: relative;
     height: 10rem;
     border-radius: 8px;
     margin: 6px 30px;
@@ -167,8 +168,8 @@ main {
 }
 .disbtn {
     position: absolute;
-    bottom: 12.5rem;
-    left: 32em;
+    bottom: 12px;
+    right: 42px;
 }
 
 #time {
@@ -205,6 +206,10 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.weather h3, a {
+    padding: 0.5rem;
+    transition: 1.5s ease-in;
 }
 
 .right {
