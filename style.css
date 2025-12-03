@@ -1,5 +1,33 @@
-* { margin: 0; padding: 0;}
+* { 
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00ddff;
+}
+
+/* Firefox Scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
 
 /*dark mode*/
 :root {
@@ -16,7 +44,6 @@
     --bg-tf: #00ddff;
 }
 
-
 /*light mode*/
 :root .darkmode {
     --bg-prime: #18122B;
@@ -32,12 +59,14 @@
     --bg-tf: #00ddff;
 }
 
-
-
 body {
-    overflow-y: hidden;
+    overflow: hidden;
     background-color: var(--bg-main);
     color: var(--bg-prime);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
 }
 
 h3{
@@ -57,6 +86,7 @@ nav {
     font-size: 25px;
     margin: 0px 17px;
 }
+
 .logo {
     font-family: 'Jura', sans-serif;
     font-weight: 700;
@@ -67,6 +97,7 @@ nav {
 #checkbox {
     visibility: hidden;
 }
+
 .togglebtn {
     width: 4.2rem;
     height: 2rem;
@@ -75,6 +106,7 @@ nav {
     position: relative;
     border-radius: 10rem;
 }
+
 .ball {
     width: 1.8rem;
     height: 1.8rem;
@@ -86,13 +118,16 @@ nav {
     top: .0945rem;
     transition: all 0.5s;
 }
+
 #checkbox:checked+.togglebtn .ball {
     transform: translateX(2.2rem);
 }
+
 i {
     font-size: 20px;
     margin: 1.5px;
 }
+
 .line {
     background-color: var(--bg-prime);
     margin: 0 31px 0px;
@@ -103,23 +138,35 @@ i {
 main {
     display: flex;
     justify-content: space-between;
+    flex: 1;
+    overflow: hidden;
+    padding-bottom: 65px;
+    gap: 10px;
 }
 
 .left {
     width: 45%;
-    height: 7rem;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 0 10px 30px;
 }
 
 .note {
     border-radius: 8px;
-    min-height: 4.7rem;
-    margin: 15px 30px;
+    height: 6rem;
+    flex: 0 0 6rem;
+    margin: 0 20px 0 0;
     padding: 12px;
     background-color: var(--bg-g1);
     position: relative;
-    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
+
 #noteadders {
     width: 13rem;
     background-color: rgb(223, 223, 224);
@@ -129,6 +176,7 @@ main {
     border-radius: 8px;
     border: 2px solid rgba(11, 11, 11, 0.927);
 }
+
 .notebtn {
     width: 5rem;
     min-height: 1.8rem;
@@ -137,12 +185,14 @@ main {
     border-radius: 0.5rem;
     cursor: pointer;
 }
+
 .linen {
     background-color: var(--bg-prime);
     margin: 0 31px 0px;
     width: 85%;
     height: 1px;
 }
+
 .dlt {
     position: absolute;
     left: 25rem;
@@ -150,26 +200,44 @@ main {
 }
 
 .quote {
-    position: relative;
-    height: 10rem;
+    flex: 1;
     border-radius: 8px;
-    margin: 6px 30px;
+    margin: 0 20px 0 0;
     padding: 12px;
     background-color: var(--bg-g2);
     color: var(--bg-prime);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 0;
 }
+
+.quote h3 {
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-g2);
+    z-index: 5;
+    margin: -12px -12px 8px -12px;
+    padding: 12px 12px 0 12px;
+}
+
 .disquote {
     font-size: 1.5rem;
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
+    padding-bottom: 50px;
 }
+
 .disbtn {
-    position: absolute;
+    position: sticky;
     bottom: 12px;
-    right: 42px;
+    right: 12px;
+    float: right;
+    clear: both;
+    z-index: 10;
+    margin-top: -45px;
 }
 
 #time {
@@ -177,18 +245,20 @@ main {
     color: var(--bg-tf);
     font-size: 2rem;
     border-radius: 8px;
-    margin: 12px 10px 20px 75px;
+    margin: 0 20px 0 0;
     padding: 14px 20px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    width: 55%;
     cursor: pointer;
+    flex: 0 0 auto;
 }
+
 #date{
     text-align: center;
     font-size: 30px;
     text-shadow: 0 0 20px #00ffcc;
     letter-spacing: 2px;
 }
+
 #timedis{
     text-align: center;
     font-size: 30px;
@@ -198,32 +268,57 @@ main {
 
 .weather {
     background-color: var(--bg-b1);
-    margin: 0px 30px;
-    padding: 8px;
-    height: 30px;
+    margin: 10px 30px;
+    padding: 12px 8px;
+    height: 40px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.weather h3, a {
+
+.weather h3, .weather a, .weather p {
     padding: 0.5rem;
     transition: 1.5s ease-in;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .right {
     width: 55%;
     border-radius: 10px;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px 0 0;
 }
 
 .todolist {
     background-color: var(--bg-b2);
     border-radius: 8px;
-    margin: 15px 30px;
+    margin: 10px 0 10px 15px;
     padding: 12px;
-    height: 400px;
+    flex: 1;
+    min-height: 0;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.addbar {
+    margin-bottom: 10px;
+}
+
+.todos {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .modal {
@@ -241,9 +336,11 @@ main {
     max-width: 80%;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.708);
 }
+
 .modal.active {
     transform: translate(-50%, -50%)scale(1);
 }
+
 .modal-header {
     padding: 10px 15px;
     display: flex;
@@ -251,10 +348,12 @@ main {
     align-items: center;
     border-bottom: 1.8px solid var(--bg-prime);
 }
+
 .closebtn {
     font-size: x-large;
     font-weight: bold;
 }
+
 .modal-body {
     padding: 8px;
 }
@@ -270,7 +369,18 @@ main {
     transition: 0.5s ease-out;
     pointer-events: none;
 }
+
 #overlay.active {
     opacity: 1;
     pointer-events: all;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+    height: 60px;
 }
