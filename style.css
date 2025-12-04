@@ -20,7 +20,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #00ddff;
+    background: #7f5af0;
 }
 
 /* Firefox Scrollbar */
@@ -40,23 +40,33 @@
     --bg-b2: #242635;
     --bg-btn: #fffffe;
     --bg-modal: #16161d;
-    --bg-time: rgba(127, 90, 240, 0.1);
+    --bg-time: rgba(127, 90, 240, 0.12);
     --bg-tf: #7f5af0;
+    --date-shadow: 0 0 20px rgba(127, 90, 240, 0.7), 0 0 40px rgba(127, 90, 240, 0.4), 0 2px 4px rgba(0, 0, 0, 0.5);
+    --time-shadow: 0 0 25px rgba(127, 90, 240, 0.9), 0 0 50px rgba(127, 90, 240, 0.5), 0 4px 8px rgba(0, 0, 0, 0.6);
+    --time-bg-gradient: linear-gradient(135deg, rgba(127, 90, 240, 0.15), rgba(127, 90, 240, 0.05));
+    --time-border: rgba(127, 90, 240, 0.3);
+    --time-hover-shadow: 0 8px 20px rgba(127, 90, 240, 0.4), 0 0 15px rgba(127, 90, 240, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /*light mode*/
 :root .darkmode {
-    --bg-prime: #2d334a;
-    --bg-main: #fef6e4;
-    --bg-g1: #f3d2c1;
-    --bg-g2: #fffffe;
-    --bg-g3: #f582ae;
-    --bg-b1: #8bd3dd;
-    --bg-b2: #fffffe;
-    --bg-btn: #001858;
-    --bg-modal: #fec89a;
-    --bg-time: rgba(139, 211, 221, 0.2);
-    --bg-tf: #001858;
+    --bg-prime: #2d3748;
+    --bg-main: #f7fafc;
+    --bg-g1: #e0f2fe;
+    --bg-g2: #dbeafe;
+    --bg-g3: #bfdbfe;
+    --bg-b1: #dbeafe;
+    --bg-b2: #dbeafe;
+    --bg-btn: #1e40af;
+    --bg-modal: #e0f2fe;
+    --bg-time: rgba(219, 234, 254, 0.3);
+    --bg-tf: #1e40af;
+    --date-shadow: 0 0 12px rgba(30, 64, 175, 0.5), 0 2px 8px rgba(30, 64, 175, 0.4), 0 1px 2px rgba(0, 0, 0, 0.15);
+    --time-shadow: 0 0 18px rgba(30, 64, 175, 0.6), 0 3px 12px rgba(30, 64, 175, 0.5), 0 2px 4px rgba(0, 0, 0, 0.2);
+    --time-bg-gradient: linear-gradient(135deg, rgba(219, 234, 254, 0.5), rgba(30, 64, 175, 0.08));
+    --time-border: rgba(30, 64, 175, 0.2);
+    --time-hover-shadow: 0 8px 25px rgba(30, 64, 175, 0.4), 0 0 15px rgba(30, 64, 175, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 body {
@@ -218,11 +228,11 @@ main {
 
 .quote h3 {
     position: sticky;
-    top: 0;
+    top: -12px;
     background-color: var(--bg-g2);
     z-index: 5;
     margin: -12px -12px 8px -12px;
-    padding: 12px 12px 0 12px;
+    padding: 12px 12px 12px 12px;
 }
 
 .disquote {
@@ -245,29 +255,41 @@ main {
 }
 
 #time {
-    background-color: var(--bg-time);
+    background: var(--time-bg-gradient);
     color: var(--bg-tf);
     font-size: 2rem;
-    border-radius: 8px;
+    border-radius: 16px;
     margin: 0 20px 0 0;
-    padding: 14px 20px;
+    padding: 20px 24px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     flex: 0 0 auto;
+    border: 1px solid var(--time-border);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+#time:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--time-hover-shadow);
 }
 
 #date{
     text-align: center;
-    font-size: 30px;
-    text-shadow: 0 0 20px #00ffcc;
-    letter-spacing: 2px;
+    font-size: 28px;
+    text-shadow: var(--date-shadow);
+    letter-spacing: 3px;
+    font-weight: 600;
+    margin-bottom: 4px;
 }
 
 #timedis{
     text-align: center;
-    font-size: 30px;
-    letter-spacing: 4px;
-    text-shadow: 0 0 20px #00ffcc;
+    font-size: 42px;
+    letter-spacing: 6px;
+    font-weight: 700;
+    text-shadow: var(--time-shadow);
+    font-variant-numeric: tabular-nums;
 }
 
 .weather {
@@ -289,6 +311,7 @@ main {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    pointer-events: none;
 }
 
 .right {
