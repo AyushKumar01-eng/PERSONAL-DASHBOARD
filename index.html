@@ -5,14 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/style.css">
+     <link rel="stylesheet" href="/style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Whisper&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css" integrity="sha512-r/Gan7PMSRovDus++vDS2Ayutc/cSdl268u047n4z+k7GYuR7Hiw71FsT3QQxdKJBVHYttOJ6IGLnlM9IoMToQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Whisper&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css"
+        integrity="sha512-r/Gan7PMSRovDus++vDS2Ayutc/cSdl268u047n4z+k7GYuR7Hiw71FsT3QQxdKJBVHYttOJ6IGLnlM9IoMToQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Personal-Dashboard</title>
 </head>
@@ -35,11 +39,13 @@
         <div class="left">
             <div class="note">
                 <input id="noteadders" type="text" placeholder="WRITE A NOTE">
-                <button  class="notebtn">ADD</button>
+                <button class="notebtn">ADD</button>
             </div>
-            <div class="quote"><h3><U><I>QUOTE OF THE DAY:</I></U></h3>
+            <div class="quote">
+                <h3><U><I>QUOTE OF THE DAY:</I></U></h3>
                 <div class="disquote"></div>
-                <button data-modal-target="#modal" class="disbtn notebtn">NEW QUOTE</button></div>
+                <button data-modal-target="#modal" class="disbtn notebtn">NEW QUOTE</button>
+            </div>
             <div id="time">
                 <div id="date"></div>
                 <div id="timedis"></div>
@@ -51,18 +57,18 @@
                 <button class="closebtn notebtn">&times;</button>
             </div>
             <div class="modal-body" id="modalbody"></div>
-    </div>
+        </div>
         <div class="right">
             <div class="todolist">
                 <div class="addbar">
-                     <input id="noteadders" type="text" placeholder="WRITE TASK">
-                <button  class="notebtn">ADD TASK</button>
+                    <input id="noteadders" type="text" placeholder="WRITE TASK">
+                    <button class="notebtn">ADD TASK</button>
                 </div>
                 <div class="line"> </div>
                 <div class="card"><input type="checkbox" name="todo" id="todo"></div>
                 <div class="todos"></div>
             </div>
-            </div>
+        </div>
     </main>
     <footer>
         <div class="weather">
@@ -71,5 +77,7 @@
     </footer>
     <div id="overlay"></div>
 </body>
+
 <script src="/script.js"></script>
+
 </html>

@@ -1,8 +1,4 @@
-* { 
-    margin: 0; 
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0;box-sizing: border-box;}
 
 /* Custom Scrollbar Styles */
 ::-webkit-scrollbar {
@@ -245,8 +241,8 @@ main {
 
 .disbtn {
     position: sticky;
-    bottom: 12px;
-    right: 12px;
+    bottom: 2px;
+    right: 2px;
     float: right;
     clear: both;
     z-index: 10;
