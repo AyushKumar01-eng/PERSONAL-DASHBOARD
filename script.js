@@ -15,21 +15,18 @@ mode.addEventListener('change', () => {
 //NOTES PAD
 
 const noteContainer = document.querySelector('.note')
-const placeholder =document.getElementById('noteadders')
 
 function attachAddListener(input, button) {
-     input.addEventListener('keydown',(event)=>{
-            if(event.key==='Enter'){
-                  const val = input.value.trim()
-        if (val !== '') {
-            localStorage.setItem('note', val)
-            input.value = ''
-            render()
-        }
-       
-                
+    input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            const val = input.value.trim()
+            if (val !== '') {
+                localStorage.setItem('note', val)
+                input.value = ''
+                render()
             }
-        })
+        }
+    })
     button.addEventListener('click', () => {
         const val = input.value.trim()
         if (val !== '') {
@@ -37,7 +34,7 @@ function attachAddListener(input, button) {
             input.value = ''
             render()
         }
-       
+
     });
 }
 

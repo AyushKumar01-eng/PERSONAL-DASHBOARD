@@ -321,27 +321,96 @@ main {
 }
 
 .todolist {
-    background-color: var(--bg-b2);
-    border-radius: 8px;
+    background: linear-gradient(135deg, var(--bg-b2) 0%, var(--bg-g3) 100%);
+    border-radius: 12px;
     margin: 10px 0 10px 15px;
-    padding: 12px;
+    padding: 16px;
     flex: 1;
     min-height: 0;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6), 0 0 20px rgba(127, 90, 240, 0.15);
     overflow-y: auto;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
+    border: 1px solid rgba(127, 90, 240, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.todolist:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.7), 0 0 30px rgba(127, 90, 240, 0.25);
+    border-color: rgba(127, 90, 240, 0.3);
 }
 
 .addbar {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 12px;
+    background: var(--bg-g3);
+    border-radius: 10px;
+    border: 1px solid rgba(127, 90, 240, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.addbar:focus-within {
+    border-color: rgba(127, 90, 240, 0.4);
+    box-shadow: 0 2px 12px rgba(127, 90, 240, 0.2);
+}
+
+.addbar input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--bg-prime);
+    font-size: 16px;
+    padding: 8px;
+}
+
+.addbar input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.addbar button {
+    background: var(--bg-tf);
+    color: var(--bg-prime);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(127, 90, 240, 0.3);
+}
+
+.addbar button:hover {
+    background: var(--bg-b1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(127, 90, 240, 0.5);
+}
+
+.addbar button:active {
+    transform: translateY(0);
 }
 
 .todos {
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.todos::-webkit-scrollbar-thumb {
+    background: rgba(127, 90, 240, 0.4);
+}
+
+.todos::-webkit-scrollbar-thumb:hover {
+    background: var(--bg-tf);
 }
 
 .modal {
@@ -396,6 +465,71 @@ main {
 #overlay.active {
     opacity: 1;
     pointer-events: all;
+}
+
+.card{
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+    background: var(--bg-g3);
+    padding: 14px 16px;
+    border-radius: 10px;
+    border-left: 4px solid var(--bg-tf);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(127, 90, 240, 0.08) 0%, rgba(127, 90, 240, 0.04) 50%, transparent 100%);
+    border-radius: 50%;
+    transition: width 0.6s ease, height 0.6s ease;
+    opacity: 0;
+}
+
+.card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(127, 90, 240, 0.25), 0 0 15px rgba(127, 90, 240, 0.1);
+    border-left-width: 6px;
+}
+
+.card:hover::before {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+}
+
+.card input[type="checkbox"]{
+    margin-right: 14px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--bg-tf);
+    flex-shrink: 0;
+}
+
+.card label {
+    flex: 1;
+    cursor: pointer;
+    user-select: none;
+    font-size: 16px;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+}
+
+.card input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+    opacity: 0.5;
+    color: var(--bg-prime);
 }
 
 footer {
