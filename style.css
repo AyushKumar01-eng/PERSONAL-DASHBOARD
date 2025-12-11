@@ -627,6 +627,68 @@ main {
     pointer-events: all;
 }
 
+.togglertodo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 12px;
+    background: var(--bg-g3);
+    border-radius: 10px;
+    border: 1px solid rgba(127, 90, 240, 0.15);
+}
+
+.toggletodo {
+    width: 9rem;
+    height: 2.5rem;
+    background: var(--bg-g1);
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: 2rem;
+    border: 2px solid rgba(127, 90, 240, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.toggletodo:hover {
+    border-color: rgba(127, 90, 240, 0.5);
+    box-shadow: 0 0 15px rgba(127, 90, 240, 0.2);
+}
+
+.toggle-option {
+    flex: 1;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 2;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+}
+
+.toggle-slider {
+    position: absolute;
+    width: 50%;
+    height: calc(100% - 4px);
+    background: linear-gradient(135deg, var(--bg-tf), var(--bg-b1));
+    border-radius: 2rem;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    left: 2px;
+    top: 2px;
+    box-shadow: 0 2px 8px rgba(127, 90, 240, 0.4);
+}
+
+.toggletodo.done .toggle-slider {
+    transform: translateX(calc(100% - 4px));
+}
+
+.toggletodo .toggle-option.active {
+    color: var(--bg-prime);
+}
+
 .card{
     margin: 12px 0;
     display: flex;
@@ -690,6 +752,10 @@ main {
     text-decoration: line-through;
     opacity: 0.5;
     color: var(--bg-prime);
+}
+
+.card.hidden {
+    display: none;
 }
 
 footer {

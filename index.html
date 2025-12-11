@@ -53,20 +53,27 @@
         </div>
         <div class="modal" id="modal">
             <div class="modal-header">
-                <div class="title">BSS KRR FARAZ</div>
+                <div class="title">AH, A PROFESSIONAL CLICKER!</div>
                 <button class="closebtn notebtn">&times;</button>
             </div>
             <div class="modal-body" id="modalbody"></div>
         </div>
         <div class="right">
             <div class="todolist">
-                <div class="addbar">
-                    <input id="noteadders" type="text" placeholder="WRITE TASK">
-                    <button class="notebtn">ADD TASK</button>
+                <div class="togglertodo">
+                    <h3>YOUR TODOS</h3>
+                    <div class="toggletodo" id="toggleBtn">
+                        <div class="toggle-slider"></div>
+                        <div class="toggle-option active">Todo</div>
+                        <div class="toggle-option">Done</div>
+                    </div>
                 </div>
-                <div class="line"> </div>
-                <div class="todos">
-                    <div class="card"><input type="checkbox" name="todo" id="todo"><label for="todo">hlo good morning</label></div>
+                <div class="addbar">
+                    <input id="taskinput" type="text" placeholder="WRITE TASK">
+                    <button class="notebtn" id="taskbtn">ADD TASK</button>
+                </div>
+                <div class="todos" id="todosContainer">
+                    <!-- Todos will be added here dynamically -->
                 </div>
             </div>
         </div>

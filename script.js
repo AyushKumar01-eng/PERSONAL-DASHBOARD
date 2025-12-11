@@ -266,7 +266,7 @@ function quotesmanager() {
         if (quotes[randomnum] === 0) {
             quotedv.innerHTML = ''
             const modal = document.querySelector(openmodalbtn.dataset.modalTarget)
-            const line = `AUR KITNA MOTIVATION LEGA BHOSDI`
+            const line = `QUOTE ADDICT DETECTED!`
             openmodal(modal, overlay, line)
         } else {
             quotedv.innerHTML = `"${quotes[randomnum]}"`
@@ -328,7 +328,7 @@ updateDateTime()
 setInterval(updateDateTime, 1000)
 
 document.getElementById('time').addEventListener('click', () => {
-    const text = `samay mtt dekh kamm krr`
+    const text = `SERIOUSLY?!`
     if (randomnumgen() % 2 === 0)
         openmodal(modal, overlay, text)
 })
@@ -370,3 +370,12 @@ async function weathercontrol() {
 weathercontrol()
 
 //TODOLIST
+
+const input_val=document.getElementById('noteadders')
+console.log(input_val.value);
+
+if(input_val!==''){
+document.getElementById('taskbtn').addEventListener("click", ()=>{
+    
+})
+}
