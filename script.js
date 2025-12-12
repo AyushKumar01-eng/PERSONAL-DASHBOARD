@@ -369,38 +369,40 @@ async function weathercontrol() {
 
 weathercontrol()
 
-//TODOLIST
 
 
-let currentView = 'todo'
+//TODOLIST WITH TOGGLE AND LOCALSTORAGE
+
+let currentView = 'todo' // 'todo' or 'done'
 
 const taskInput = document.getElementById('taskinput')
 const addBtn = document.getElementById('taskbtn')
 const toggleBtn = document.getElementById('toggleBtn')
 const todosContainer = document.getElementById('todosContainer')
 
+if (addBtn) {
+    addBtn.addEventListener('click', () => {
+        const taskVal = taskInput.value.trim()
+        if (taskVal === '') return
 
-addBtn.addEventListener('click', () => {
-    const taskVal = taskInput.value.trim()
-    if (taskVal === '') return
+        // Save to localStorage
+        const todos = JSON.parse(localStorage.getItem('todos') || "[]")
+        todos.push({ id: 'todo_' + Date.now(), text: taskVal, status: "todo" })
+        localStorage.setItem('todos', JSON.stringify(todos))
 
-    // Save to localStorage
-    const todos = JSON.parse(localStorage.getItem('todos') || "[]")
-    todos.push({ id: 'todo_' + Date.now(), text: taskVal, status: "todo" })
-    localStorage.setItem('todos', JSON.stringify(todos))
+        populateCards()
 
-    populateCards()
+        taskInput.value = ""
+    })
+}
 
-    taskInput.value = ""
-})
-
-
-taskInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        addBtn.click()
-    }
-})
-
+if (taskInput) {
+    taskInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            addBtn.click()
+        }
+    })
+}
 
 if (toggleBtn) {
     toggleBtn.addEventListener('click', () => {
@@ -414,11 +416,12 @@ if (toggleBtn) {
     })
 }
 
-// Filter todos based on current view
 function filterTodos() {
     const cards = todosContainer.querySelectorAll('.card')
+    
     cards.forEach(card => {
         const status = card.dataset.status
+        
         if (status === currentView) {
             card.classList.remove('hidden')
         } else {
@@ -426,7 +429,6 @@ function filterTodos() {
         }
     })
 }
-
 
 function updateTodoStatus(todoId, newStatus) {
     const todos = JSON.parse(localStorage.getItem('todos') || "[]")
@@ -438,6 +440,28 @@ function updateTodoStatus(todoId, newStatus) {
     }
 }
 
+function deleteTodo(todoId) {
+    const todos = JSON.parse(localStorage.getItem('todos') || "[]")
+    const filteredTodos = todos.filter(t => t.id !== todoId)
+    localStorage.setItem('todos', JSON.stringify(filteredTodos))
+    populateCards()
+}
+
+function editTodo(todoId) {
+    const todos = JSON.parse(localStorage.getItem('todos') || "[]")
+    const todo = todos.find(t => t.id === todoId)
+    
+    if (!todo) return
+    
+    const currentText = todo.text
+    const newText = prompt('Edit your todo:', currentText)
+    
+    if (newText !== null && newText.trim() !== '' && newText !== currentText) {
+        todo.text = newText.trim()
+        localStorage.setItem('todos', JSON.stringify(todos))
+        populateCards()
+    }
+}
 
 function populateCards() {
     todosContainer.innerHTML = "" 
@@ -453,12 +477,23 @@ function populateCards() {
         const checkbox = document.createElement("input")
         checkbox.type = "checkbox"
         checkbox.id = todo.id + "_check"
+        checkbox.name = "todo"
         checkbox.checked = (todo.status === "done")
         
-   
         checkbox.addEventListener('change', function() {
             const newStatus = this.checked ? 'done' : 'todo'
             card.dataset.status = newStatus
+            
+            // Animate the strikethrough line
+            const strikeLine = label.querySelector('.strikethrough-line')
+            if (this.checked) {
+                strikeLine.style.width = '100%'
+                label.style.opacity = '0.5'
+            } else {
+                strikeLine.style.width = '0'
+                label.style.opacity = '1'
+            }
+            
             updateTodoStatus(todo.id, newStatus)
             filterTodos()
         })
@@ -466,16 +501,74 @@ function populateCards() {
         const label = document.createElement("label")
         label.htmlFor = checkbox.id
         label.textContent = todo.text
+        label.style.position = 'relative'
+        label.style.display = 'inline-block'
+        
+        // Create actual strikethrough element
+        const strikethrough = document.createElement('span')
+        strikethrough.className = 'strikethrough-line'
+        strikethrough.style.cssText = `
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--bg-tf);
+            transform: translateY(-50%);
+            transition: width 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            pointer-events: none;
+        `
+        
+        // Set initial width if already done
+        if (todo.status === "done") {
+            strikethrough.style.width = '100%'
+            label.style.opacity = '0.5'
+        }
+        
+        label.appendChild(strikethrough)
+        
+        // Create button container
+        const btnContainer = document.createElement('div')
+        btnContainer.className = 'todo-actions'
+        
+        // Create edit button
+        const editBtn = document.createElement('button')
+        editBtn.className = 'todo-btn edit-btn'
+        editBtn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>'
+        editBtn.title = 'Edit'
+        editBtn.addEventListener('click', (e) => {
+            e.stopPropagation()
+            editTodo(todo.id)
+        })
+        
+        // Create delete button
+        const deleteBtn = document.createElement('button')
+        deleteBtn.className = 'todo-btn delete-btn'
+        deleteBtn.innerHTML = '<i class="fa-solid fa-trash"></i>'
+        deleteBtn.title = 'Delete'
+        deleteBtn.addEventListener('click', (e) => {
+            e.stopPropagation()
+            deleteTodo(todo.id)
+        })
+        
+        btnContainer.appendChild(editBtn)
+        btnContainer.appendChild(deleteBtn)
 
         card.appendChild(checkbox)
         card.appendChild(label)
+        card.appendChild(btnContainer)
         todosContainer.appendChild(card)
     })
     
     filterTodos()
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
     populateCards()
 })
+
+if (document.readyState === 'loading') {
+    // Document still loading, DOMContentLoaded will handle it
+} else {
+    populateCards()
+}

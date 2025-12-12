@@ -1,4 +1,4 @@
-* { margin: 0; padding: 0;box-sizing: border-box;}
+* { margin: 0; padding: 0; box-sizing: border-box;}
 
 /* Custom Scrollbar Styles */
 ::-webkit-scrollbar {
@@ -65,6 +65,11 @@
     --time-bg-gradient: linear-gradient(135deg, rgba(219, 234, 254, 0.5), rgba(30, 64, 175, 0.08));
     --time-border: rgba(30, 64, 175, 0.2);
     --time-hover-shadow: 0 8px 25px rgba(30, 64, 175, 0.4), 0 0 15px rgba(30, 64, 175, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+:root .darkmode #noteadders::placeholder,
+:root .darkmode .addbar input::placeholder {
+    color: rgba(45, 55, 72, 0.6);
 }
 
 body {
@@ -201,7 +206,7 @@ main {
     padding: 14px;
     background: linear-gradient(135deg, var(--bg-g1), var(--bg-g3));
     position: relative;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6), 0 0 20px rgba(127, 90, 240, 0.1);
     border: 1px solid rgba(127, 90, 240, 0.15);
@@ -219,11 +224,13 @@ main {
     background: var(--bg-g3);
     color: var(--bg-prime);
     padding: 0.7rem;
-    margin: 0.9rem 2.5rem;
+    margin: 0.9rem 1rem 0.9rem 2.5rem;
     border-radius: 8px;
     border: 2px solid rgba(127, 90, 240, 0.3);
     outline: none;
     transition: all 0.3s ease;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 #noteadders:focus {
@@ -243,6 +250,8 @@ main {
     font-weight: 600;
     transition: all 0.3s ease;
     box-shadow: 0 2px 6px rgba(127, 90, 240, 0.3);
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .notebtn:hover {
@@ -380,6 +389,7 @@ main {
     border-radius: 50%;
     transition: width 0.6s ease, height 0.6s ease;
     opacity: 0;
+    pointer-events: none;
 }
 
 #time:hover::before {
@@ -496,12 +506,23 @@ main {
 
 .addbar input {
     flex: 1;
-    background: transparent;
-    border: none;
+    background: var(--bg-g3);
+    border: 2px solid rgba(127, 90, 240, 0.3);
+    border-radius: 8px;
     outline: none;
     color: var(--bg-prime);
     font-size: 16px;
-    padding: 8px;
+    padding: 0.7rem;
+    transition: all 0.3s ease;
+}
+
+.addbar input:focus {
+    border-color: var(--bg-tf);
+    box-shadow: 0 0 15px rgba(127, 90, 240, 0.3);
+}
+
+#noteadders::placeholder {
+    color: rgba(255, 255, 255, 0.4);
 }
 
 .addbar input::placeholder {
@@ -679,6 +700,7 @@ main {
     left: 2px;
     top: 2px;
     box-shadow: 0 2px 8px rgba(127, 90, 240, 0.4);
+    pointer-events: none;
 }
 
 .toggletodo.done .toggle-slider {
@@ -693,13 +715,13 @@ main {
     margin: 12px 0;
     display: flex;
     align-items: center;
+    gap: 10px;
     background: var(--bg-g3);
     padding: 14px 16px;
     border-radius: 10px;
     border-left: 4px solid var(--bg-tf);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    cursor: pointer;
     position: relative;
     overflow: hidden;
 }
@@ -716,6 +738,7 @@ main {
     border-radius: 50%;
     transition: width 0.6s ease, height 0.6s ease;
     opacity: 0;
+    pointer-events: none;
 }
 
 .card:hover {
@@ -730,6 +753,11 @@ main {
     opacity: 1;
 }
 
+.card:hover .todo-actions {
+    opacity: 1;
+    visibility: visible;
+}
+
 .card input[type="checkbox"]{
     margin-right: 14px;
     width: 20px;
@@ -737,6 +765,9 @@ main {
     cursor: pointer;
     accent-color: var(--bg-tf);
     flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    pointer-events: auto;
 }
 
 .card label {
@@ -745,13 +776,60 @@ main {
     user-select: none;
     font-size: 16px;
     line-height: 1.5;
-    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    pointer-events: auto;
+    transition: opacity 0.4s ease;
 }
 
-.card input[type="checkbox"]:checked + label {
-    text-decoration: line-through;
-    opacity: 0.5;
+.todo-actions {
+    display: flex;
+    gap: 6px;
+    margin-left: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 2;
+}
+
+.todo-btn {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    background: var(--bg-g2);
     color: var(--bg-prime);
+    border: 1px solid rgba(127, 90, 240, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.todo-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(127, 90, 240, 0.3);
+    border-color: rgba(127, 90, 240, 0.4);
+}
+
+.todo-btn:active {
+    transform: translateY(0);
+}
+
+.edit-btn:hover {
+    background: var(--bg-tf);
+    border-color: var(--bg-b1);
+    box-shadow: 0 4px 12px rgba(127, 90, 240, 0.5);
+}
+
+.delete-btn:hover {
+    background: rgba(255, 59, 48, 0.15);
+    border-color: rgba(255, 59, 48, 0.4);
+    color: #ff3b30;
+    box-shadow: 0 4px 10px rgba(255, 59, 48, 0.3);
 }
 
 .card.hidden {
