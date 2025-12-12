@@ -371,11 +371,49 @@ weathercontrol()
 
 //TODOLIST
 
-const input_val=document.getElementById('noteadders')
-console.log(input_val.value);
+const taskInput = document.getElementById('taskinput');
+const addBtn = document.getElementById('taskbtn');
 
-if(input_val!==''){
-document.getElementById('taskbtn').addEventListener("click", ()=>{
+addBtn.addEventListener('click', () => {
+    const taskVal = taskInput.value.trim();
+    if (taskVal === '') return; // don’t add empty
+
+    // Save to localStorage
+    const todos = JSON.parse(localStorage.getItem('todos') || "[]");
+    todos.push({ id: 'todo_' + Date.now(), text: taskVal, status: "todo" });
+    localStorage.setItem('todos', JSON.stringify(todos));
+
+    // Show it
+    populateCards();
     
-})
+    taskInput.value = "";
+});
+
+function populateCards() {
+    const todoList = document.getElementById('todosContainer');
+    todoList.innerHTML = ""; // clear before redrawing
+
+    const todos = JSON.parse(localStorage.getItem('todos') || "[]");
+    todos.forEach(todo => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.dataset.status = todo.status;
+        card.id = todo.id;
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = todo.id + "_check";
+        checkbox.checked = (todo.status === "done");
+
+        const label = document.createElement("label");
+        label.htmlFor = checkbox.id;
+        label.textContent = todo.text;
+
+        card.appendChild(checkbox);
+        card.appendChild(label);
+        todoList.appendChild(card);
+    });
 }
+
+// Populate existing todos when page loads
+document.addEventListener('DOMContentLoaded', populateCards);
