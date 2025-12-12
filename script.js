@@ -371,49 +371,111 @@ weathercontrol()
 
 //TODOLIST
 
-const taskInput = document.getElementById('taskinput');
-const addBtn = document.getElementById('taskbtn');
+
+let currentView = 'todo'
+
+const taskInput = document.getElementById('taskinput')
+const addBtn = document.getElementById('taskbtn')
+const toggleBtn = document.getElementById('toggleBtn')
+const todosContainer = document.getElementById('todosContainer')
+
 
 addBtn.addEventListener('click', () => {
-    const taskVal = taskInput.value.trim();
-    if (taskVal === '') return; // don’t add empty
+    const taskVal = taskInput.value.trim()
+    if (taskVal === '') return
 
     // Save to localStorage
-    const todos = JSON.parse(localStorage.getItem('todos') || "[]");
-    todos.push({ id: 'todo_' + Date.now(), text: taskVal, status: "todo" });
-    localStorage.setItem('todos', JSON.stringify(todos));
+    const todos = JSON.parse(localStorage.getItem('todos') || "[]")
+    todos.push({ id: 'todo_' + Date.now(), text: taskVal, status: "todo" })
+    localStorage.setItem('todos', JSON.stringify(todos))
 
-    // Show it
-    populateCards();
-    
-    taskInput.value = "";
-});
+    populateCards()
 
-function populateCards() {
-    const todoList = document.getElementById('todosContainer');
-    todoList.innerHTML = ""; // clear before redrawing
+    taskInput.value = ""
+})
 
-    const todos = JSON.parse(localStorage.getItem('todos') || "[]");
-    todos.forEach(todo => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.dataset.status = todo.status;
-        card.id = todo.id;
 
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.id = todo.id + "_check";
-        checkbox.checked = (todo.status === "done");
+taskInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        addBtn.click()
+    }
+})
 
-        const label = document.createElement("label");
-        label.htmlFor = checkbox.id;
-        label.textContent = todo.text;
 
-        card.appendChild(checkbox);
-        card.appendChild(label);
-        todoList.appendChild(card);
-    });
+if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+        toggleBtn.classList.toggle('done')
+        
+        const options = toggleBtn.querySelectorAll('.toggle-option')
+        options.forEach(opt => opt.classList.toggle('active'))
+        
+        currentView = currentView === 'todo' ? 'done' : 'todo'
+        filterTodos()
+    })
 }
 
-// Populate existing todos when page loads
-document.addEventListener('DOMContentLoaded', populateCards);
+// Filter todos based on current view
+function filterTodos() {
+    const cards = todosContainer.querySelectorAll('.card')
+    cards.forEach(card => {
+        const status = card.dataset.status
+        if (status === currentView) {
+            card.classList.remove('hidden')
+        } else {
+            card.classList.add('hidden')
+        }
+    })
+}
+
+
+function updateTodoStatus(todoId, newStatus) {
+    const todos = JSON.parse(localStorage.getItem('todos') || "[]")
+    const todoIndex = todos.findIndex(t => t.id === todoId)
+    
+    if (todoIndex !== -1) {
+        todos[todoIndex].status = newStatus
+        localStorage.setItem('todos', JSON.stringify(todos))
+    }
+}
+
+
+function populateCards() {
+    todosContainer.innerHTML = "" 
+
+    const todos = JSON.parse(localStorage.getItem('todos') || "[]")
+    
+    todos.forEach(todo => {
+        const card = document.createElement("div")
+        card.className = "card"
+        card.dataset.status = todo.status
+        card.id = todo.id
+
+        const checkbox = document.createElement("input")
+        checkbox.type = "checkbox"
+        checkbox.id = todo.id + "_check"
+        checkbox.checked = (todo.status === "done")
+        
+   
+        checkbox.addEventListener('change', function() {
+            const newStatus = this.checked ? 'done' : 'todo'
+            card.dataset.status = newStatus
+            updateTodoStatus(todo.id, newStatus)
+            filterTodos()
+        })
+
+        const label = document.createElement("label")
+        label.htmlFor = checkbox.id
+        label.textContent = todo.text
+
+        card.appendChild(checkbox)
+        card.appendChild(label)
+        todosContainer.appendChild(card)
+    })
+    
+    filterTodos()
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    populateCards()
+})
