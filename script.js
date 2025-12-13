@@ -337,7 +337,7 @@ document.getElementById('time').addEventListener('click', () => {
 async function weathercontrol() {
 
     async function weatherdata(lat, lon) {
-        const api = await fetch(`http://api.weatherapi.com/v1/current.json?key=a94b429a14a94bf2874213638250112&q=${lat},${lon}`)
+        const api = await fetch(`https://api.weatherapi.com/v1/current.json?key=a94b429a14a94bf2874213638250112&q=${lat},${lon}`)
 
         return await api.json()
     }
