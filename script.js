@@ -275,11 +275,10 @@ function quotesmanager() {
 
     displayQuote()
 
-    document.querySelector('.disbtn').addEventListener('click', displayQuote)
-
+    
 }
 
-quotesmanager()
+document.querySelector('.disbtn').addEventListener('click',quotesmanager)
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.disquote').innerHTML = 'REALITY SUCKS, Chase Your DREAMS'
@@ -407,10 +406,10 @@ if (taskInput) {
 if (toggleBtn) {
     toggleBtn.addEventListener('click', () => {
         toggleBtn.classList.toggle('done')
-        
+
         const options = toggleBtn.querySelectorAll('.toggle-option')
         options.forEach(opt => opt.classList.toggle('active'))
-        
+
         currentView = currentView === 'todo' ? 'done' : 'todo'
         filterTodos()
     })
@@ -418,10 +417,10 @@ if (toggleBtn) {
 
 function filterTodos() {
     const cards = todosContainer.querySelectorAll('.card')
-    
+
     cards.forEach(card => {
         const status = card.dataset.status
-        
+
         if (status === currentView) {
             card.classList.remove('hidden')
         } else {
@@ -433,7 +432,7 @@ function filterTodos() {
 function updateTodoStatus(todoId, newStatus) {
     const todos = JSON.parse(localStorage.getItem('todos') || "[]")
     const todoIndex = todos.findIndex(t => t.id === todoId)
-    
+
     if (todoIndex !== -1) {
         todos[todoIndex].status = newStatus
         localStorage.setItem('todos', JSON.stringify(todos))
@@ -450,12 +449,12 @@ function deleteTodo(todoId) {
 function editTodo(todoId) {
     const todos = JSON.parse(localStorage.getItem('todos') || "[]")
     const todo = todos.find(t => t.id === todoId)
-    
+
     if (!todo) return
-    
+
     const currentText = todo.text
     const newText = prompt('Edit your todo:', currentText)
-    
+
     if (newText !== null && newText.trim() !== '' && newText !== currentText) {
         todo.text = newText.trim()
         localStorage.setItem('todos', JSON.stringify(todos))
@@ -464,10 +463,10 @@ function editTodo(todoId) {
 }
 
 function populateCards() {
-    todosContainer.innerHTML = "" 
+    todosContainer.innerHTML = ""
 
     const todos = JSON.parse(localStorage.getItem('todos') || "[]")
-    
+
     todos.forEach(todo => {
         const card = document.createElement("div")
         card.className = "card"
@@ -479,11 +478,11 @@ function populateCards() {
         checkbox.id = todo.id + "_check"
         checkbox.name = "todo"
         checkbox.checked = (todo.status === "done")
-        
-        checkbox.addEventListener('change', function() {
+
+        checkbox.addEventListener('change', function () {
             const newStatus = this.checked ? 'done' : 'todo'
             card.dataset.status = newStatus
-            
+
             // Animate the strikethrough line
             const strikeLine = label.querySelector('.strikethrough-line')
             if (this.checked) {
@@ -493,7 +492,7 @@ function populateCards() {
                 strikeLine.style.width = '0'
                 label.style.opacity = '1'
             }
-            
+
             updateTodoStatus(todo.id, newStatus)
             filterTodos()
         })
@@ -503,7 +502,7 @@ function populateCards() {
         label.textContent = todo.text
         label.style.position = 'relative'
         label.style.display = 'inline-block'
-        
+
         // Create actual strikethrough element
         const strikethrough = document.createElement('span')
         strikethrough.className = 'strikethrough-line'
@@ -518,19 +517,19 @@ function populateCards() {
             transition: width 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             pointer-events: none;
         `
-        
+
         // Set initial width if already done
         if (todo.status === "done") {
             strikethrough.style.width = '100%'
             label.style.opacity = '0.5'
         }
-        
+
         label.appendChild(strikethrough)
-        
+
         // Create button container
         const btnContainer = document.createElement('div')
         btnContainer.className = 'todo-actions'
-        
+
         // Create edit button
         const editBtn = document.createElement('button')
         editBtn.className = 'todo-btn edit-btn'
@@ -540,7 +539,7 @@ function populateCards() {
             e.stopPropagation()
             editTodo(todo.id)
         })
-        
+
         // Create delete button
         const deleteBtn = document.createElement('button')
         deleteBtn.className = 'todo-btn delete-btn'
@@ -550,7 +549,7 @@ function populateCards() {
             e.stopPropagation()
             deleteTodo(todo.id)
         })
-        
+
         btnContainer.appendChild(editBtn)
         btnContainer.appendChild(deleteBtn)
 
@@ -559,7 +558,7 @@ function populateCards() {
         card.appendChild(btnContainer)
         todosContainer.appendChild(card)
     })
-    
+
     filterTodos()
 }
 
