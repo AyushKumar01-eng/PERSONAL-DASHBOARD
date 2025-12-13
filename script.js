@@ -275,10 +275,10 @@ function quotesmanager() {
 
     displayQuote()
 
-    
+
 }
 
-document.querySelector('.disbtn').addEventListener('click',quotesmanager)
+document.querySelector('.disbtn').addEventListener('click', quotesmanager)
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.disquote').innerHTML = 'REALITY SUCKS, Chase Your DREAMS'
